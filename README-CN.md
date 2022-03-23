@@ -1,19 +1,15 @@
-Terraform module which creates monitor of Prometheus on Alibaba Cloud.
-
 terraform-alicloud-prometheus
 =====================================================================
 
-English | [简体中文](https://github.com/terraform-alicloud-modules/terraform-alicloud-prometheus/blob/master/README-CN.md)
+本 Module 用于在阿里云创建一个[Prometheus监控](https://help.aliyun.com/product/122122.html).
 
-Terraform module which creates Mybase and its account on Alibaba Cloud.
+本 Module 支持创建以下资源:
 
-These types of resources are supported:
+* [报警联系人组(Arms_Alert_Contact_Group)](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/arms_alert_contact_group)
+* [报警分发规则(Arms_Dispatch_Rule)](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/arms_dispatch_rule)
+* [报警触发条件(Arms_Prometheus_Alert_Rule)](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/arms_prometheus_alert_rule)
 
-* [Arms_Alert_Contact_Group](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/arms_alert_contact_group)
-* [Arms_Dispatch_Rule](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/arms_dispatch_rule)
-* [Arms_Prometheus_Alert_Rule](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/arms_prometheus_alert_rule)
-
-## Requirements
+## 版本要求
 
 | Name | Version |
 |------|---------|
@@ -26,7 +22,7 @@ These types of resources are supported:
 |------|---------|
 | <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | >= 1.131.0 |
 
-## Usage
+## 用法
 
 ```hcl
 resource "alicloud_arms_alert_contact" "default" {
@@ -46,21 +42,21 @@ module "example" {
 }
 ```
 
-Submit Issues
--------------
-If you have any problems when using this module, please opening a [provider issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new) and let us know.
+提交问题
+------
+如果在使用该 Terraform Module 的过程中有任何问题，可以直接创建一个 [Provider Issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new)，我们将根据问题描述提供解决方案。
 
-**Note:** There does not recommend to open an issue on this repo.
+**注意:** 不建议在该 Module 仓库中直接提交 Issue。
 
-Authors
+作者
 -------
 Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
 
-License
+许可
 ----
 Apache 2 Licensed. See LICENSE for full details.
 
-Reference
+参考
 ---------
 * [Terraform-Provider-Alicloud Github](https://github.com/aliyun/terraform-provider-alicloud)
 * [Terraform-Provider-Alicloud Release](https://releases.hashicorp.com/terraform-provider-alicloud/)
