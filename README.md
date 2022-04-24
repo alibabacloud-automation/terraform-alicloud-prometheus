@@ -5,7 +5,7 @@ terraform-alicloud-prometheus
 
 English | [简体中文](https://github.com/terraform-alicloud-modules/terraform-alicloud-prometheus/blob/master/README-CN.md)
 
-Terraform module which creates Mybase and its account on Alibaba Cloud.
+Terraform module which creates monitor of Prometheus on Alibaba Cloud.
 
 These types of resources are supported:
 

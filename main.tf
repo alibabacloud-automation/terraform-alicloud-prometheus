@@ -26,11 +26,10 @@ resource "alicloud_arms_dispatch_rule" "arms_dispatch_rule" {
       }
     }
   }
-
   notify_rules {
     notify_objects {
       notify_object_id = alicloud_arms_alert_contact_group.arms_alert_contact_group.0.id
-      notify_type      = "ARMS_CONTACT_GROUP"
+      notify_type      = var.notify_type
       name             = var.notification_name
     }
     notify_channels = var.notify_channels
@@ -43,7 +42,7 @@ resource "alicloud_arms_prometheus_alert_rule" "arms_prometheus_alert_rule" {
   cluster_id                 = var.cluster_id
   expression                 = var.alert_expression
   message                    = var.alert_message
-  duration                   = 1
+  duration                   = var.alert_duration
   notify_type                = var.alert_notify_type
   dispatch_rule_id           = alicloud_arms_dispatch_rule.arms_dispatch_rule.0.id
   type                       = var.prometheus_type

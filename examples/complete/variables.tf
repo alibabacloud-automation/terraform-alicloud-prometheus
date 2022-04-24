@@ -1,27 +1,28 @@
-#alicloud_arms_alert_contact_group
-variable "create" {
-  description = "Whether to create resources in module."
-  type        = bool
-  default     = false
+#alicloud_arms_alert_contact
+variable "alert_contact_name" {
+  description = "The name of the alert contact."
+  type        = string
+  default     = "tf-testacc-user"
 }
 
+variable "email" {
+  description = "The email address of the alert contact."
+  type        = string
+  default     = "158@aliyun.com"
+}
+
+#alicloud_arms_alert_contact_group
 variable "alert_contact_group_name" {
   description = "The name of arms contract group."
   type        = string
-  default     = null
-}
-
-variable "contact_ids" {
-  description = "The ids of arms contract."
-  type        = list(string)
-  default     = []
+  default     = "tf-testacc-group"
 }
 
 #alicloud_arms_dispatch_rule
 variable "dispatch_rule_name" {
   description = "The rule name of dispatch."
   type        = string
-  default     = ""
+  default     = "tf-testacc-rule"
 }
 
 variable "dispatch_type" {
@@ -33,26 +34,25 @@ variable "dispatch_type" {
 variable "group_wait_time" {
   description = "The waiting time of arms contract group."
   type        = number
-  default     = 0
+  default     = 10
 }
 
 variable "group_interval" {
   description = "The interval time of arms contract group."
   type        = number
-  default     = 0
+  default     = 10
 }
 
 variable "repeat_interval" {
   description = "The repeat interval time of arms contract group."
   type        = number
-  default     = 0
+  default     = 10
 }
-
 
 variable "grouping_fields" {
   description = "The files of arms contract group."
   type        = list(string)
-  default     = []
+  default     = ["CreateDispatchRuleValue"]
 }
 
 variable "match_expressions" {
@@ -62,7 +62,13 @@ variable "match_expressions" {
     value    = string
     operator = string
   }))
-  default = []
+  default = [
+    {
+      key      = "_aliyun_arms_alert_name",
+      value    = "tf-testacc-app",
+      operator = "eq"
+    }
+  ]
 }
 
 variable "notify_type" {
@@ -74,54 +80,18 @@ variable "notify_type" {
 variable "notification_name" {
   description = "The name of arms notification."
   type        = string
-  default     = ""
+  default     = "tf-testacc-notification"
 }
 
 variable "notify_channels" {
   description = "The name of arms notification."
   type        = list(string)
-  default     = ["dingTalk", "wechat"]
+  default     = ["dingTalk"]
 }
 
 #alicloud_arms_prometheus_alert_rule
-variable "alert_name" {
-  description = "The alert name of prometheus."
-  type        = string
-  default     = ""
-}
-
-variable "cluster_id" {
-  description = "The ID of the cluster."
-  type        = string
-  default     = ""
-}
-
-variable "alert_expression" {
-  description = "The alert expression of prometheus."
-  type        = string
-  default     = ""
-}
-
-variable "alert_message" {
-  description = "The alert message of prometheus."
-  type        = string
-  default     = ""
-}
-
-variable "alert_duration" {
-  description = "The duration of the alert."
-  type        = string
-  default     = "1"
-}
-
 variable "alert_notify_type" {
   description = "The notify type of prometheus."
   type        = string
-  default     = "DISPATCH_RULE"
-}
-
-variable "prometheus_type" {
-  description = "The type information of prometheus."
-  type        = string
-  default     = ""
+  default     = "ALERT_MANAGER"
 }
