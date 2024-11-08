@@ -1,4 +1,12 @@
-data "alicloud_cs_managed_kubernetes_clusters" "default" {
+resource "random_integer" "default" {
+  min = 100000
+  max = 999999
+}
+
+resource "alicloud_arms_prometheus" "default" {
+  cluster_type        = "remote-write"
+  cluster_name        = "tf-example-${random_integer.default.result}"
+  grafana_instance_id = "free"
 }
 
 resource "alicloud_arms_alert_contact" "default" {
@@ -16,7 +24,7 @@ module "example" {
   contact_ids              = [alicloud_arms_alert_contact.default.id]
 
   #alicloud_arms_dispatch_rule
-  dispatch_rule_name = var.dispatch_rule_name
+  dispatch_rule_name = "${var.dispatch_rule_name}-${random_integer.default.result}"
   dispatch_type      = var.dispatch_type
   group_wait_time    = var.group_wait_time
   group_interval     = var.group_interval
@@ -33,13 +41,5 @@ module "example" {
   notification_name = var.notification_name
   notify_channels   = var.notify_channels
 
-  #alicloud_arms_prometheus_alert_rule
-  alert_name        = "tf-testacc-alert"
-  cluster_id        = data.alicloud_cs_managed_kubernetes_clusters.default.clusters.0.id
-  alert_expression  = "node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10"
-  alert_message     = "node available memory is less than 10%"
-  alert_duration    = "1"
-  alert_notify_type = var.alert_notify_type
-  prometheus_type   = "alert"
-
+  create_prometheus_alert_rule = false
 }
