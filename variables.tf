@@ -18,6 +18,12 @@ variable "contact_ids" {
 }
 
 #alicloud_arms_dispatch_rule
+variable "create_dispatch_rule" {
+  description = "Whether to create arms dispatch rule in module."
+  type        = bool
+  default     = true
+}
+
 variable "dispatch_rule_name" {
   description = "The rule name of dispatch."
   type        = string
@@ -84,6 +90,12 @@ variable "notify_channels" {
 }
 
 #alicloud_arms_prometheus_alert_rule
+variable "create_prometheus_alert_rule" {
+  description = "Whether to create prometheus alert rule."
+  type        = bool
+  default     = true
+}
+
 variable "alert_name" {
   description = "The alert name of prometheus."
   type        = string

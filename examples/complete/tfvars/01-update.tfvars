@@ -22,6 +22,3 @@ match_expressions = [
 notify_type       = "ARMS_CONTACT"
 notification_name = "update-tf-testacc-notification"
 notify_channels   = ["email"]
-
-#alicloud_arms_prometheus_alert_rule
-alert_notify_type = "DISPATCH_RULE"

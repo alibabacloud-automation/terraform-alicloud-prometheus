@@ -5,7 +5,7 @@ resource "alicloud_arms_alert_contact_group" "arms_alert_contact_group" {
 }
 
 resource "alicloud_arms_dispatch_rule" "arms_dispatch_rule" {
-  count              = var.create ? 1 : 0
+  count              = var.create_dispatch_rule ? 1 : 0
   dispatch_rule_name = var.dispatch_rule_name
   dispatch_type      = var.dispatch_type
   group_rules {
@@ -28,7 +28,7 @@ resource "alicloud_arms_dispatch_rule" "arms_dispatch_rule" {
   }
   notify_rules {
     notify_objects {
-      notify_object_id = alicloud_arms_alert_contact_group.arms_alert_contact_group.0.id
+      notify_object_id = alicloud_arms_alert_contact_group.arms_alert_contact_group[0].id
       notify_type      = var.notify_type
       name             = var.notification_name
     }
@@ -37,13 +37,13 @@ resource "alicloud_arms_dispatch_rule" "arms_dispatch_rule" {
 }
 
 resource "alicloud_arms_prometheus_alert_rule" "arms_prometheus_alert_rule" {
-  count                      = var.create ? 1 : 0
+  count                      = var.create_prometheus_alert_rule ? 1 : 0
   prometheus_alert_rule_name = var.alert_name
   cluster_id                 = var.cluster_id
   expression                 = var.alert_expression
   message                    = var.alert_message
   duration                   = var.alert_duration
   notify_type                = var.alert_notify_type
-  dispatch_rule_id           = alicloud_arms_dispatch_rule.arms_dispatch_rule.0.id
+  dispatch_rule_id           = alicloud_arms_dispatch_rule.arms_dispatch_rule[0].id
   type                       = var.prometheus_type
 }

@@ -46,29 +46,13 @@ variable "group_interval" {
 variable "repeat_interval" {
   description = "The repeat interval time of arms contract group."
   type        = number
-  default     = 10
+  default     = 61
 }
 
 variable "grouping_fields" {
   description = "The files of arms contract group."
   type        = list(string)
   default     = ["CreateDispatchRuleValue"]
-}
-
-variable "match_expressions" {
-  description = "The lable of match expresoins."
-  type = list(object({
-    key      = string
-    value    = string
-    operator = string
-  }))
-  default = [
-    {
-      key      = "_aliyun_arms_alert_name",
-      value    = "tf-testacc-app",
-      operator = "eq"
-    }
-  ]
 }
 
 variable "notify_type" {
@@ -87,11 +71,4 @@ variable "notify_channels" {
   description = "The name of arms notification."
   type        = list(string)
   default     = ["dingTalk"]
-}
-
-#alicloud_arms_prometheus_alert_rule
-variable "alert_notify_type" {
-  description = "The notify type of prometheus."
-  type        = string
-  default     = "ALERT_MANAGER"
 }
