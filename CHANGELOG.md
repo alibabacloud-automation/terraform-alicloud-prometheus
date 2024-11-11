@@ -1,4 +1,7 @@
-## 1.1.0 (Unreleased)
+## 1.2.0 (Unreleased)
+## 1.1.0 (2024-11-11)
+
+- Module: support create control for other resources; examples: improve the examples [GH-3](https://github.com/alibabacloud-automation/terraform-alicloud-prometheus/pull/3)
 
 ## 1.0.0 (2022-03-24)
 
