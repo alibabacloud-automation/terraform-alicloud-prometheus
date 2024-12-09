@@ -32,7 +32,9 @@ resource "alicloud_arms_dispatch_rule" "arms_dispatch_rule" {
       notify_type      = var.notify_type
       name             = var.notification_name
     }
-    notify_channels = var.notify_channels
+    notify_channels   = var.notify_channels
+    notify_start_time = var.notify_start_time
+    notify_end_time   = var.notify_end_time
   }
 }
 

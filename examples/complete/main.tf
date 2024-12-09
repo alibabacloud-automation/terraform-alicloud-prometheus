@@ -40,6 +40,8 @@ module "example" {
   notify_type       = var.notify_type
   notification_name = var.notification_name
   notify_channels   = var.notify_channels
+  notify_start_time = "00:00"
+  notify_end_time   = "23:59"
 
   create_prometheus_alert_rule = false
 }
