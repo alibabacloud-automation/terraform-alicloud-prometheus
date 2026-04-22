@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/alibabacloud-automation/terraform-alicloud-prometheus/compare/v1.2.0...v2.0.0) (2026-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* add provider version constraint for aliyun/alicloud
+
+### Features
+
+* add provider version constraint for aliyun/alicloud ([641c401](https://github.com/alibabacloud-automation/terraform-alicloud-prometheus/commit/641c40198c11060cd97c320aa92283f59ec935ab))
+
 ## 1.3.0 (Unreleased)
 ## 1.2.0 (2024-12-09)
 
