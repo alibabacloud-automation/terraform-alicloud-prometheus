@@ -1,3 +1,14 @@
+## [3.0.0](https://github.com/alibabacloud-automation/terraform-alicloud-prometheus/compare/v2.0.0...v3.0.0) (2026-07-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* package Prometheus instances and ARMS resources
+
+### Features
+
+* package Prometheus instances and ARMS resources ([a63988e](https://github.com/alibabacloud-automation/terraform-alicloud-prometheus/commit/a63988e8b65c9ed98762ca7922abdc503d41d78b))
+
 ## [2.0.0](https://github.com/alibabacloud-automation/terraform-alicloud-prometheus/compare/v1.2.0...v2.0.0) (2026-04-22)
 
 
